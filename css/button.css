@@ -1,9 +1,9 @@
 .zoom {
-      position:fixed;
-      bottom:45px;
-      right:24px;
-      height:70px;
-    }
+    position:fixed;
+    bottom:45px;
+    right:24px;
+    height:70px;
+}
      
 .zoom-fab {
     display: inline-block;

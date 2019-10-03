@@ -6,4 +6,16 @@
       var enlace = "file:///C:/Users/gabriel/Desktop/ProyectCS50/pages/Historial.html";
       $(i).attr('href',enlace);
    };
+
+
+
+   var $move = $('#card');
+
+   $('#test').on("mouseenter",function(){
+      $move.css({
+         backgroundColor:"green"
+      })
+      console.log('Hola');
+   });;
+
 })()
