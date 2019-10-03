@@ -14,10 +14,9 @@ h3{
 }
 
 .rowed{
-	margin: 20px 0px 20px 100px;
+	margin: 20px 0px 20px 120px;
 	display: flex;
 	justify-content: center;
-	/* text-align: center; */
 	align-items: center;
 }
 
@@ -27,13 +26,13 @@ h3{
 
 img{
 	height: 250px;
-	width: 120px;
+	width: 200px;
 }
 
 /*Realizando un menu*/
 
 .list{
-	background: rgb(97, 107, 253);
+	background: #007bff;
 	/* margin:20px 100px 20px 100px; */
 	margin:0;
 	box-shadow:0px 2px 2px rgb(0,0,0);
