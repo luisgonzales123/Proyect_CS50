@@ -1,5 +1,8 @@
 body{
-    background: rgb(244,244,244);
+	background: rgb(244,244,244);
+	/* background: url(../img/back.jpg); */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 h3{
@@ -62,10 +65,27 @@ ul{
 
 /*Cards*/
 
-.temp{background: rgb(132, 240, 226);}
+.temp,#temperatura{background: rgb(132, 240, 226);border:1px solid rgb(132, 240, 226);}
 
-.hum{background: rgb(101, 243, 119);}
+.hum,#humedad{background: rgb(101, 243, 119);border:1px solid rgb(101, 243, 119);}
 
-.luz{background: rgb(255,163,70);}
+.luz,#luz{background: rgb(255,163,70);border:1px solid rgb(255,163,70);}
 
-.presion, {background: rgb(121,188,255);}
+.presion,#presion{background: rgb(121,188,255);border:0px solid rgb(121,188,255);}
+
+/*Hover*/
+
+#temperatura:hover{background: rgb(110, 197, 185);}
+
+#humedad:hover{background: rgb(78, 190, 93);}
+
+#luz:hover{background: rgb(212, 136, 59);}
+
+#presion:hover{background: rgb(100, 163, 226);}
+
+
+/**/
+
+.card{
+	box-shadow: 3px 2px 5px #ccc; 
+}
