@@ -13,9 +13,8 @@
 
    $('#test').on("mouseenter",function(){
       $move.css({
-         backgroundColor:"green"
+         width:"="
       })
-      console.log('Hola');
    });;
 
 })()

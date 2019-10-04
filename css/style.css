@@ -4,7 +4,7 @@ body{
 
 h3{
 	color: #fff;
-	background: #007bff;
+	/* background: #007bff; */
 	text-align: center;
 	padding: 10px;
 }
@@ -58,3 +58,14 @@ ul{
 	background:rgb(44, 68, 119);
 	color:rgb(255,255,236);
 }
+
+
+/*Cards*/
+
+.temp{background: rgb(132, 240, 226);}
+
+.hum{background: rgb(101, 243, 119);}
+
+.luz{background: rgb(255,163,70);}
+
+.presion{background: rgb(121,188,255);}

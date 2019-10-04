@@ -1,0 +1,23 @@
+{
+  "name": "proyectcs50",
+  "version": "1.0.0",
+  "description": "Una conexion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisgonzales123/Proyect_CS50.git"
+  },
+  "author": "Luis Gabriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisgonzales123/Proyect_CS50/issues"
+  },
+  "homepage": "https://github.com/luisgonzales123/Proyect_CS50#readme",
+  "dependencies": {
+    "serial": "0.0.9",
+    "serialport": "^7.1.5"
+  }
+}
