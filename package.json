@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/luisgonzales123/Proyect_CS50#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "serial": "0.0.9",
     "serialport": "^7.1.5"
   }
