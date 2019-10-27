@@ -15,11 +15,10 @@ con.connect(function(error){
          console.log('Conexion correcta.');
       }
 });
-
-con.query('select * from registro;', function (error, results, fields) {
+exports.module = con.query('select * from registro;', function (error, results, fields) {
    if (error) throw error;
-   //return results;
-   console.log(results);
+   return results;
+   //console.log(results);
 });
 
 module.exports = con;
