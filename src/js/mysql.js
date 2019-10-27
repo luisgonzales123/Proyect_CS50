@@ -22,7 +22,4 @@ con.query('select * from registro;', function (error, results, fields) {
    console.log(results);
 });
 
-let myfunction = function(){console.log(1234)};
-myfunction();
-
 module.exports = con;

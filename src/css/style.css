@@ -106,3 +106,22 @@ ul{
     position: fixed;
     z-index: -1;
 }
+
+
+/* Pie de pagina*/
+
+.footer{
+    background-color: #33414E;
+    height: auto;
+    color: #fff;
+    padding-top: 20px;
+    margin-top: 70px;
+}
+.footer-copyright{
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    background-color: #2B3D51;
+}

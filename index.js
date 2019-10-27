@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-require('./src/js/mysql');
-require('./src/js/Consultas');
+const con = require('./src/js/mysql');
 const app = express();
 
 app.use(express.static('src'));
