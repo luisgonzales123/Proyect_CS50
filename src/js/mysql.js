@@ -16,4 +16,12 @@ con.connect(function(error){
     }
  });
 
+ con.query('select * from registro;', function (error, results, fields) {
+   if (error) throw error;
+   for(var i in results){
+      var data = results[i].id_luz;
+      console.log(data);
+   }
+ });
+
 module.exports = con;

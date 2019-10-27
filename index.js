@@ -17,15 +17,5 @@ app.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
 
-
-app.get('/',function(req,res){
-    con.query("select * from luz",function(error,rows,fields){
-       if(!!error){
-          console.log('Error');
-       }else{
-       }
-       console.log('sucess\n');
-       console.log(rows);
-    });
- });
- 
+// module.exports = app;
+con.end();
