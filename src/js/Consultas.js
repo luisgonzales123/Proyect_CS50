@@ -1,3 +1,9 @@
+/*
+con.query('select * from luz;',(errors,results,fields) => {
+    if (error) throw error;
+    console.log(results);
+});*/
+
 for(var i = 0; i < 10; i++){
     var html = "";
     html += '<tr>';
@@ -10,4 +16,4 @@ for(var i = 0; i < 10; i++){
     $('#tabla').append(html);
 }
 
-
+console.log("Terminando");
