@@ -1,14 +1,14 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "1234",
+  password: "Lll1@ggg1234",
   database: "clima",
   port:3306
 });
 
-connection.connect(function(error){
+con.connect(function(error){
     if(error){
        throw error;
     }else{
@@ -16,4 +16,4 @@ connection.connect(function(error){
     }
  });
 
-con.end();
+module.exports = con;

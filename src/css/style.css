@@ -3,6 +3,16 @@ body{
 	background: url(../img/colorful-blocks-blank-white-background-vector/67037.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+36,f1f1f1+36,f1f1f1+47,f6f6f6+100 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+6,f1f1f1+6,f1f1f1+96,f6f6f6+100 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+6,f1f1f1+6,e2e2e2+96,f6f6f6+100 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 6%, rgba(241,241,241,1) 6%, rgba(226,226,226,1) 96%, rgba(246,246,246,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 6%,rgba(241,241,241,1) 6%,rgba(226,226,226,1) 96%,rgba(246,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 6%,rgba(241,241,241,1) 6%,rgba(226,226,226,1) 96%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 */
+
 }
 
 h3{
@@ -88,4 +98,11 @@ ul{
 
 .card{
 	box-shadow: 3px 2px 5px #ccc; 
+}
+
+#particles-js {
+	height: 100%; 
+	width: 100%;
+    position: fixed;
+    z-index: -1;
 }

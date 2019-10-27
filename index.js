@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
+const con = require('./src/js/mysql');
 const app = express();
 
 app.use(express.static('src'));
@@ -15,3 +16,16 @@ app.use('/', router);
 app.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
+
+
+app.get('/',function(req,res){
+    con.query("select * from luz",function(error,rows,fields){
+       if(!!error){
+          console.log('Error');
+       }else{
+       }
+       console.log('sucess\n');
+       console.log(rows);
+    });
+ });
+ 
