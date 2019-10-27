@@ -9,19 +9,20 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(error){
-    if(error){
-       throw error;
-    }else{
-       console.log('Conexion correcta.');
-    }
- });
+      if(error){
+         throw error;
+      }else{
+         console.log('Conexion correcta.');
+      }
+});
 
- con.query('select * from registro;', function (error, results, fields) {
+con.query('select * from registro;', function (error, results, fields) {
    if (error) throw error;
-   for(var i in results){
-      var data = results[i].id_luz;
-      console.log(data);
-   }
- });
+   //return results;
+   console.log(results);
+});
+
+let myfunction = function(){console.log(1234)};
+myfunction();
 
 module.exports = con;
