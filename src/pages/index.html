@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/fontello.css">
     <link rel="stylesheet" href="../css/button.css">
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/TweenMax.min.js"></script>
+    <script src="../js/Chart.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -27,7 +29,7 @@
              </ul>
         </nav>
     </header>
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     <section class="container">
         <section class="row rowed">
 
@@ -37,7 +39,7 @@
                     <img src="../img/temperature.png" alt="" class="card-img-top">
                     <div class="card-body">
                         <p class="card-text">La temperatura esta: </p>
-                        <a id="temperatura" id="test" href="" class="btn btn-primary">Ver</a>
+                        <button data-state="Temperatura" id="temperatura" class="btn btn-primary">Ver</button>
                     </div>
                 </div>
             </div>
@@ -48,21 +50,20 @@
                         <img src="../img/humedad.png" alt="" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">La humedad esta: </p>
-                            <a id="humedad" href="" class="btn btn-primary">Ver</a>
+                            <button data-state="Humedad" id="humedad"  class="btn btn-primary">Ver</button>
                         </div>
                     </div>
             </div>
         </section>
 
         <section class="row rowed">
-            
                 <div  class="col col-lg-6 col-m-6 col-sm-12">
                     <div id="content" class="card" style="width: 18rem;">
                             <h3 class="card-title luz">Luz</h3>
                             <img src="../img/bombilla1.png" alt="" class="card-img-top">
                             <div class="card-body">
                                 <p class="card-text">La luminosidad esta: </p>
-                                <a id="luz" href="" class="btn btn-primary">Ver</a>
+                                <button data-state="Luz" id="luz" href="" class="btn btn-primary">Ver</button>
                             </div>
                     </div>
                 </div>
@@ -73,16 +74,12 @@
                         <img src="../img/presion.png" alt="" class="card-img-top">
                             <div class="card-body">
                                 <p id="text-presion" class="card-text">La presión esta: </p>
-                                <a id="presion" href="" class="btn btn-primary">Ver</a>
+                                <button data-state="Presion" id="presion" href="" class="btn btn-primary">Ver</button>
                             </div>
                         </div>
                 </div>
         </section>   
     </section>
-
-    <div class="zoom">
-        <a class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="icon-plus" style="color: white;"></i></a>
-    </div>
             
     <footer class="footer full-reset">
             <div class="container-fluid">
@@ -105,9 +102,51 @@
                 </div>
             </div>
             <div class="footer-copyright full-reset all-tittles">© 2018 Luis Gonzales</div>
-        </footer>
-    <script src="js/particles.min.js"></script>
-    <script src="js/add.js"></script>
+    </footer>
+    <div class="zoom">
+            <a class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="icon-plus" style="color: white;"></i></a>
+    </div>
     <script src="../js/app.js"></script>
+    <script>
+
+        let myObject = {
+            vino:"Vino",
+            ron:"ron",
+            cerveza:"cerveza"
+        };
+
+        let valores_ = {
+            vino:15,
+            ron:7,
+            cerveza:9
+        };
+
+        function elemento(data){
+            if (data === "Temperatura"){
+                return ["Temperatura","Grafico de Temperatura","rgb(132, 240, 226)"];
+            }else if(data === "Luz"){
+                return ["Luz","Grafico de luz","rgb(255,163,70)"];
+            }else if(data === "Humedad"){
+                return ["Humedad","Grafico de Humedad","rgb(101, 243, 119)"];
+            }else if(data === "Presion"){
+                return ["Presion","Grafico de Presion","rgb(121,188,255)"];
+            }
+        }
+
+        $('button').on('click',function(){
+            var $data = $(this).data("state");
+            var $id =  elemento( $data );
+        
+			$.bigBox({
+                valor:  $id[0],
+                titulo: $id[1],
+                labels:myObject,
+                valores:valores_,
+                color:$id[2]
+            });
+        });
+    </script>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/add.js"></script>
 </body>
 </html>

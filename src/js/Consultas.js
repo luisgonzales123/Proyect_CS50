@@ -12,6 +12,7 @@ for(var i = 0; i < 10; i++){
     html += '   <td>'+i+'</td>';
     html += '   <td>'+i+'</td>';
     html += '   <td>'+i+'</td>';
+    html += '   <td>'+i+'</td>';
     html += '</tr>';
     $('#tabla').append(html);
 }

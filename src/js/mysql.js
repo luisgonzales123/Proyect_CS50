@@ -15,7 +15,8 @@ con.connect(function(error){
          console.log('Conexion correcta.');
       }
 });
-exports.module = con.query('select * from registro;', function (error, results, fields) {
+
+con.query('select * from registro;', function (error, results, fields) {
    if (error) throw error;
    return results;
    //console.log(results);
