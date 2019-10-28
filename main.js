@@ -11,7 +11,7 @@ const parser = require('./src/js/arduino');
 const path = require('path');
 const router = express.Router();
 
-const con = require('./src/js/mysql');
+//const con = require('./src/js/mysql');
 
 const io = SocketIO.listen(server);
 
@@ -28,11 +28,20 @@ server.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
 
+
 parser.on('data',function(data){
-    io.emit('temp',data);
-    //console.log(data.toString());
+    var datos_serial = data.toString().split(',');
+    let datos = {
+        temperatura:datos_serial[1],
+        humedad: datos_serial[0],
+        luz: datos_serial[2],
+        presion:datos_serial[3]
+    };
+    io.emit('temp',datos);
+    //console.log(datos.temperatura);
 });
 
+/*
 con.query('select * from registro;',function(error,results,fields){
     io.emit('consu',results);
-});
+});*/

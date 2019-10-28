@@ -12,7 +12,8 @@
    $.bigBox = (opciones)=>{
       opciones = $.extend({
          titulo:undefined,
-         valor:undefined
+         valor:undefined,
+         tipo:undefined
       },opciones);
    
       let contenido = '<div class="bigBox-Fondo"></div>';
@@ -50,21 +51,53 @@
               tl.to($fondo, 0.6, {opacity: 0.3})
                 .to($bigBox, 0.5, {opacity:1},"-=0.7")
                 .from($bigBox, 0.5, {y:"-=30px"},"-=0.5");
+
+         /*                     creacion del grafico                 */
+
+         const socket = io();
+         let counter = 0;
+         socket.on('temp',function(dataserial){
+
+
+            let tipo = function(){
+               if (opciones.tipo === "T"){
+                  return dataserial.temperatura;
+               }else if (opciones.tipo === "H"){
+                  return dataserial.humedad;
+               }else if (opciones.tipo === "L"){
+                  return dataserial.luz;
+               }else if(opciones.tipo === "P"){
+                  return dataserial.presion;
+               }
+            }
+            
+           console.log(counter);
+           chart.data.labels.push(counter);
+           chart.data.datasets.forEach(datasets => {
+              //datasets.data.push(dataserial.temperatura).value;
+              datasets.data.push(tipo()).value;
+           });
+           counter++;
+           chart.update();
+           
+         });
    
          let miCanvas = document.getElementById('myChart').getContext('2d');
          var chart = new Chart(miCanvas,{
-                  type:"bar",
+                  type:"line",
                   data:{
-                     labels:[opciones.labels["vino"],opciones.labels["ron"],opciones.labels["cerveza"]],
+                     labels:opciones.valores[1],
                      datasets:[{
                            label:opciones.valor,
                            backgroundColor:opciones.color,
-                           data:[opciones.valores["vino"],opciones.valores["ron"],opciones.valores["cerveza"]]
+                           borderColor: 'rgb(244,244,244)',
+                           data:[]
                      }]
-                  }
+                  },
+               options:{}
          });   
       };
-   
+      /* ---------------------------------------------------------------- */
       let animar_salida = ()=>{
           var $fondo = $('.bigBox-Fondo');
           var $bigBox = $('.bigBox-contenedor');

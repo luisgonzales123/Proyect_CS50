@@ -101,6 +101,7 @@ ul{
 	background: rgb(244, 244, 244);
 }
 
+
 #particles-js {
 	height: 100%; 
 	width: 100%;
@@ -175,4 +176,10 @@ h5{margin: 30px;}
 
 .bigBox-Titulo{
 	font-size: 38px;
+}
+
+
+/*************************/
+p{
+	border: none;
 }

@@ -49,7 +49,7 @@
                         <h3 class="card-title hum">Humedad</h3>
                         <img src="../img/humedad.png" alt="" class="card-img-top">
                         <div class="card-body">
-                            <p id="humedad" class="card-text">La humedad esta: </p>
+                            <p id="humedad" class="card-text"></p>
                             <button data-state="Humedad" id="humedad"  class="btn btn-primary">Ver</button>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <h3 class="card-title luz">Luz</h3>
                             <img src="../img/bombilla1.png" alt="" class="card-img-top">
                             <div class="card-body">
-                                <p class="card-text">La luminosidad esta: </p>
+                                <p id="luminosidad" class="card-text"></p>
                                 <button data-state="Luz" id="luz" href="" class="btn btn-primary">Ver</button>
                             </div>
                     </div>
@@ -73,7 +73,7 @@
                         <h3 class="card-title presion">Presión</h3>
                         <img src="../img/presion.png" alt="" class="card-img-top">
                             <div class="card-body">
-                                <p id="text-presion" class="card-text">La presión esta: </p>
+                                <p id="presion" class="card-text"></p>
                                 <button data-state="Presion" id="presion" href="" class="btn btn-primary">Ver</button>
                             </div>
                         </div>
@@ -106,13 +106,25 @@
     <div class="zoom">
             <a class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="icon-plus" style="color: white;"></i></a>
     </div>
-   <script src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/add.js"></script>
     <script>
 
+        $(document).ready(function(){
+            const socket = io();
+            socket.on('temp',function(data){
+                $('#temperatura').text("La temperatura esta: "+data.temperatura+ "°C").attr('style','background:rgb(244,244,244);border: none;');
+                $('#humedad').text("La humedad esta: "+data.humedad+ " HR").attr('style','background:rgb(244,244,244);border: none;');
+                $('#presion').text("La presion esta: "+data.presion+ " Pascal").attr('style','background:rgb(244,244,244);border: none;');
+                $('#luminosidad').text("La luminosidad esta: "+data.luz+ " lx").attr('style','background:rgb(244,244,244);border: none;');
+                console.log(data);
+            //document.getElementById('mip').innerHTML = data.toString();
+            });
+        })
+
         let myObject = {
-            vino:"Vino",
-            ron:"ron",
-            cerveza:"cerveza"
+            serial:"serial"
         };
 
         let valores_ = {
@@ -121,15 +133,16 @@
             cerveza:9
         };
 
+        
         function elemento(data){
             if (data === "Temperatura"){
-                return ["Temperatura","Grafico de Temperatura","rgb(132, 240, 226)"];
+                return ["Temperatura","Grafico de Temperatura","rgb(132, 240, 226)","T"];
             }else if(data === "Luz"){
-                return ["Luz","Grafico de luz","rgb(255,163,70)"];
+                return ["Luz","Grafico de luz","rgb(255,163,70)","L"];
             }else if(data === "Humedad"){
-                return ["Humedad","Grafico de Humedad","rgb(101, 243, 119)"];
+                return ["Humedad","Grafico de Humedad","rgb(101, 243, 119)","H"];
             }else if(data === "Presion"){
-                return ["Presion","Grafico de Presion","rgb(121,188,255)"];
+                return ["Presion","Grafico de Presion","rgb(121,188,255)","P"];
             }
         }
 
@@ -142,19 +155,10 @@
                 titulo: $id[1],
                 labels:myObject,
                 valores:valores_,
-                color:$id[2]
+                color:$id[2],
+                tipo:$id[3]
             });
         });
-    </script>
-    <script src="../js/particles.min.js"></script>
-    <script src="../js/add.js"></script>  
-    <script>
-        const socket = io();
-        socket.on('temp',function(data){
-            $('#temperatura').text("La temperatura esta: "+data.toString()).attr('style','background:#fff');
-            console.log(data);
-            //document.getElementById('mip').innerHTML = data.toString();
-        });
-    </script>
+    </script>  
 </body>
 </html>
