@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const con = require('./src/js/mysql');
-require('./src/js/arduino')
 const app = express();
+require('./src/js/arduino');
+
 
 app.use(express.static('src'));
 

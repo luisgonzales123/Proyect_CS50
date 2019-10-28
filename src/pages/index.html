@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Estación Meteorologica</title>
-    <script src="../js/require.js"></script>
+    <script src="../js/socket.io.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/fontello.css">
@@ -38,7 +38,7 @@
                     <h3 class="card-title temp">Temperatura</h3>
                     <img src="../img/temperature.png" alt="" class="card-img-top">
                     <div class="card-body">
-                        <p class="card-text">La temperatura esta: </p>
+                        <p id="tempe" class="card-text">La temperatura esta: </p>
                         <button data-state="Temperatura" id="temperatura" class="btn btn-primary">Ver</button>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
     </div>
    <script src="../js/app.js"></script>
     <script>
-
+/*
         let myObject = {
             vino:"Vino",
             ron:"ron",
@@ -144,11 +144,20 @@
                 valores:valores_,
                 color:$id[2]
             });
+        });*/
+
+
+        $(document).ready(function(){
+            var socket = io.connect();
+            socket.on('news',function(data){
+                //$("#tempe").text(data[0].serial);
+                console.log("11"+data.toString());
+            })
         });
+
     </script>
     <script src="../js/particles.min.js"></script>
     <script src="../js/add.js"></script>
-    <script src="../js/arduino.js">
     </script>
 </body>
 </html>
