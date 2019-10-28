@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const con = require('./src/js/mysql');
+require('./src/js/arduino')
 const app = express();
 
 app.use(express.static('src'));
@@ -16,5 +17,23 @@ app.use('/', router);
 app.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
+
+
+const serialport = require('serialport');
+
+var serial = new serialport('COM13',{parser:serialport.parsers.Readline()});
+
+serial.on('open',function(err){
+    if (err != null){
+        console.log("Error");
+    }else{
+        console.log("conexion lista");
+    }
+});  
+
+serial.on('data',function(){
+    console.log(data.toString());
+});
+
 
 module.exports = app;
