@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const con = require('./src/js/mysql');
-//require('./src/js/arduino');
+require('./src/js/arduino')
 const app = express();
 
 app.use(express.static('src'));
@@ -14,7 +14,7 @@ router.get('/',(req,res)=> res.sendFile(path.join(__dirname+'/src/pages/index.ht
 
 app.use('/', router);
 
-app.listen(process.env.port || 3000,function(){
+app.listen(process.env.port || 4000,function(){
     console.log('Servidor iniciado');
 });
 
