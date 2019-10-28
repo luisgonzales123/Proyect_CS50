@@ -1,36 +1,15 @@
-const serialport = require('serialport');
-const app = require('../../main');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const serial = require('serialport');
 
-var serial = new serialport('COM13',{parser: serialport.parsers.Readline,"baudRate": 9600});
+const Readline = serial.parsers.Readline;
 
-/*
-var serial = new serialport('COM13',(error) => {
-        if(error != null){
-            console.log('hubo un error');
-        }else{
-            console.log("todo bien");
-        }
-});*/
-    
-serial.on('open',function(error){
-        if (error != null){
-            console.log("Error");
-        }else{
-            console.log("conexion lista");
-        }
-});
-    
-    
-io.on('connection', function(socket){
-   serial.on('data',function(data){
-      socket.emit('news',{serial: data[0].toString()});
-   });
+const port = new serial('COM13',function(){
+    BaudRate: 9600
 });
 
-let imprimir = function(){
-    console.log("Te estoy salnda");
-}
+const parser = port.pipe(new Readline({delimeter:'\r\n'}));
 
-module.exports = io;
+parser.on('open',function(){
+    console.log('connection is open');
+});
+
+module.exports = parser;

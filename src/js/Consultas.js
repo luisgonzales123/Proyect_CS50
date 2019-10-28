@@ -17,4 +17,10 @@ for(var i = 0; i < 10; i++){
     $('#tabla').append(html);
 }
 
+const socket = io();
+socket.on('consu',function(data){
+   console.log(data);
+    //document.getElementById('mip').innerHTML = data.toString();
+});
+
 console.log("Terminando");
