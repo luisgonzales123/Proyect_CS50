@@ -1,3 +1,4 @@
+var niq = require('uniq');
 const mysql = require('mysql');
 
 var con = mysql.createConnection({
