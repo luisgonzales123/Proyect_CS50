@@ -14,7 +14,7 @@ router.get('/',(req,res)=> res.sendFile(path.join(__dirname+'/src/pages/index.ht
 
 app.use('/', router);
 
-app.listen(process.env.port || 4000,function(){
+app.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
 

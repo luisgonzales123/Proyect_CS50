@@ -16,6 +16,8 @@ con.connect(function(error){
       }
 });
 
-
+con.query('select * from registro;',(error,results,fields)=>{
+   console.log(results);
+});
 
 module.exports = con;
