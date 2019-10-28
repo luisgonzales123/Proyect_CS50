@@ -1,5 +1,3 @@
-var niq = require('uniq');
-
 const serialport = require('serialport');
 const app = require('../../main');
 const server = require('http').Server(app);
@@ -30,5 +28,9 @@ io.on('connection', function(socket){
       socket.emit('news',{serial: data[0].toString()});
    });
 });
+
+let imprimir = function(){
+    console.log("Te estoy salnda");
+}
 
 module.exports = io;

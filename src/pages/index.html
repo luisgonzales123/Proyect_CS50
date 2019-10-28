@@ -12,7 +12,6 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/TweenMax.min.js"></script>
     <script src="../js/Chart.js"></script>
-    <script src="../js/socket.io.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -145,18 +144,9 @@
                 color:$id[2]
             });
         });*/
-
-        $(document).ready(function(){
-            console.log("11");
-            var socket = io.connect('http://localhost');
-            socket.on('news',function(data){
-                //$("#tempe").text(data[0].serial);
-                console.log("11"+data[0].toString());
-            });
-        });
-
     </script>
     <script src="../js/particles.min.js"></script>
     <script src="../js/add.js"></script>
+    <script src="../../bundle.js"></script>
 </body>
 </html>
