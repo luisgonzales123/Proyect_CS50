@@ -49,7 +49,7 @@
                         <h3 class="card-title hum">Humedad</h3>
                         <img src="../img/humedad.png" alt="" class="card-img-top">
                         <div class="card-body">
-                            <p id="humedad" class="card-text"></p>
+                            <p id="humedad" class="card-text text-muted" name="humedad"></p>
                             <button data-state="Humedad" id="humedad"  class="btn btn-primary">Ver</button>
                         </div>
                     </div>
@@ -103,9 +103,11 @@
             </div>
             <div class="footer-copyright full-reset all-tittles">© 2018 Luis Gonzales</div>
     </footer>
-    <div class="zoom">
-            <a class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="icon-plus" style="color: white;"></i></a>
-    </div>
+    <form method="post" action="/">
+        <div class="zoom">
+                <button type="submit" class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="icon-plus" style="color: white;"></i></button>
+        </div>
+    </form>
     <script src="../js/app.js"></script>
     <script src="../js/particles.min.js"></script>
     <script src="../js/add.js"></script>

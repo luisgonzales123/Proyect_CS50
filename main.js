@@ -1,4 +1,4 @@
-//var niq = require('uniq');
+var uniqe = require('uniq');
 
 const http = require('http');
 const express = require('express');
@@ -11,7 +11,7 @@ const parser = require('./src/js/arduino');
 const path = require('path');
 const router = express.Router();
 
-//const con = require('./src/js/mysql');
+const con = require('./src/js/mysql');
 
 const io = SocketIO.listen(server);
 
@@ -28,6 +28,22 @@ server.listen(process.env.port || 3000,function(){
     console.log('Servidor iniciado');
 });
 
+router.post('/',function(req,res,next){
+    var humedad = this.document.getElementsByName('humedad').toString();
+    var registro = {
+        humedad:humedad
+    };
+    console.log(registro.humedad);
+    /*
+    con.query('insert into luz values ('+9+','+registro.dato+')',function(error,results){
+        if (error){
+            console.log(error);
+            return ;
+        }
+    });
+    res.sendFile(path.join(__dirname + '/src/pages/Historial.html'))*/
+});
+
 
 parser.on('data',function(data){
     var datos_serial = data.toString().split(',');
@@ -38,10 +54,11 @@ parser.on('data',function(data){
         presion:datos_serial[3]
     };
     io.emit('temp',datos);
-    //console.log(datos.temperatura);
 });
 
 /*
 con.query('select * from registro;',function(error,results,fields){
     io.emit('consu',results);
 });*/
+
+module.exports = server;
