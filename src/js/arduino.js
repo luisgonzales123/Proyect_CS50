@@ -2,7 +2,7 @@ const serial = require('serialport');
 
 const Readline = serial.parsers.Readline;
 
-const port = new serial('COM13',function(){
+const port = new serial('COM14',function(){
     BaudRate: 9600
 });
 

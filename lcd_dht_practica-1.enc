@@ -1,0 +1,89 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include "DHT.h"
+
+
+#define DHTPIN 2
+#define DHTTYPE DHT11
+
+DHT dht (DHTPIN,DHTTYPE);
+
+
+const long A = 1000;     //Resistencia en oscuridad en KΩ
+const int B = 9;        //Resistencia a la luz (10 Lux) en KΩ
+const int Rc = 10;       //Resistencia calibracion en KΩ
+int pin_ldr = A3;
+int V = 0;
+int lux = 0;
+
+LiquidCrystal_I2C lcd(0x27,16,2); //lcd(protocolo,x,y) protocolo puede ser 0x20 0x27 0x3f
+
+String var[3];
+String datos;
+
+void setup() {
+ 
+ lcd.init();
+ lcd.backlight(); //activar luz del fondo
+ lcd.clear(); 
+
+ lcd.setCursor(4,0); //cordenadas lcd (x,y)
+ lcd.print("THIS IS");
+ lcd.setCursor(4,1);
+ lcd.print("CS50X.ni");
+ delay(2500);
+ lcd.clear();
+
+ 
+ Serial.begin(9600);
+ dht.begin();
+
+
+}
+
+void loop() { 
+  
+ float h = dht.readHumidity(); //lee la humedad
+ float t = dht.readTemperature(); //lee la temperatura
+ V = analogRead(pin_ldr);
+ lux = (((long)V*A*10)/((long)B*Rc*(1024-V)));
+ 
+ 
+ lcd.setCursor(2,0); //cordenadas lcd (x,y)
+ lcd.print("H= ");
+ lcd.print(h);
+ lcd.print(" %HR");
+ var[0] = h;
+ 
+ lcd.setCursor(0,1);
+ lcd.print("T= "); 
+ lcd.print(t);
+ lcd.print("C");
+ var[1] = t;
+ 
+ lcd.print(" ");
+ lcd.print("Lx="); 
+ lcd.print(lux);
+ var[2] = lux;
+ 
+ delay(1000);
+
+
+ datos = var[0];
+ datos += ",";
+ datos += var[1];
+ datos += ",";
+ datos += var[2];
+ datos += ",";
+ Serial.print(datos);
+
+  
+ /*Serial.print(h);
+ Serial.print("-");
+ Serial.print(t);
+ Serial.print("-");
+ Serial.print(lux);
+ Serial.print("-");
+ Serial.print(analogRead(pin_ldr));
+ Serial.print("//");*/
+}

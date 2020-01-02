@@ -34,7 +34,7 @@ server.listen(process.env.port || 3000,function(){
 router.get('/',function(req,res,next){
         let reqes = req.body.humedad;
         //return datos_serial = data.toString().split(',');
-        /*let datos = {
+        let datos = {
             temperatura:datos_serial[1],
             humedad: datos_serial[0],
             luz: datos_serial[2],
@@ -55,7 +55,7 @@ router.get('/',function(req,res,next){
         con.query('insert into presion(dato) values ("'+datos.presion+'")',function(error,results){
             if (error){ console.log(error); return ;
             }else{ console.log(datos.presion); }
-        });*/
+        });
     res.sendFile(path.join(__dirname + '/src/pages/Historial.html'));
 });
 
